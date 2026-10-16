@@ -1,3 +1,4 @@
+from sqlalchemy import Nullable
 from backend.extensions.extension import db
 
 class Bus(db.Model):
@@ -6,6 +7,8 @@ class Bus(db.Model):
     bus_name = db.Column(db.String(50), nullable = False)
     bus_number = db.Column(db.String(20), nullable = False, unique = True)
     capacity = db.Column(db.Integer, nullable = False)
+    From = db.Column(db.String(100), nullable = False)
+    To = db.Column(db.String(100), nullable = False)
     is_created = db.Column(db.DateTime, default = db.func.current_timestamp())
 
 
